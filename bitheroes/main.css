@@ -16,6 +16,21 @@ body {
     font-family: "Baloo 2", Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.ghribbon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0.5;
+    transition-property: opacity;
+    transition-duration: 1s;
+}
+
+.ghribbon:hover {
+    transition-property: opacity;
+    transition-duration: 1s;
+    opacity: 1.0;
+}
+
 .container {
     margin: 0 auto;
     width: 800px;
