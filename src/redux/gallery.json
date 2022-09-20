@@ -1,0 +1,53 @@
+{
+    "bugs": [
+        {"file": "bugs/IMG_0122.png", "date": "2021-12-31"},
+        {"file": "bugs/IMG_0359.png", "date": "2020-07-01"},
+        {"file": "bugs/IMG_0537.png", "date": "2020-07-21"},
+        {"file": "bugs/IMG_0610.png", "date": "2020-08-13"},
+        {"file": "bugs/IMG_2100.jpg", "date": "2021-03-20"},
+        {"file": "bugs/IMG_2143.png", "date": "2021-04-05"},
+        {"file": "bugs/IMG_3528.png", "date": "2021-08-27"},
+        {"file": "bugs/IMG_3548.png", "date": "2021-09-04"},
+        {"file": "bugs/IMG_3642.png", "date": "2021-09-16"},
+        {"file": "bugs/IMG_3937.png", "date": "2021-10-21"},
+        {"file": "bugs/IMG_3938.png", "date": "2021-10-21"},
+        {"file": "bugs/IMG_3940.png", "date": "2021-10-21"},
+        {"file": "bugs/IMG_4200.png", "date": "2019-12-09"}
+    ],
+    "drops": [
+        {"file": "drops/2017-07-07_23.04.24.png", "date": "2017-07-07"},
+        {"file": "drops/IMG_0045.png", "date": "2021-12-19"},
+        {"file": "drops/IMG_0205.png", "date": "2022-01-06"},
+        {"file": "drops/IMG_0530.png", "date": "2020-07-21"},
+        {"file": "drops/IMG_0540.png", "date": "2020-07-22"},
+        {"file": "drops/IMG_0601.png", "date": "2020-08-11"},
+        {"file": "drops/IMG_0893.png", "date": "2020-10-02"},
+        {"file": "drops/IMG_1312.png", "date": "2020-11-22"},
+        {"file": "drops/IMG_1512.png", "date": "2020-12-23"},
+        {"file": "drops/IMG_2161.png", "date": "2021-04-09"},
+        {"file": "drops/IMG_2581.png", "date": "2021-06-05"},
+        {"file": "drops/IMG_2703.png", "date": "2019-12-09"},
+        {"file": "drops/IMG_4007.png", "date": "2021-10-30"},
+        {"file": "drops/IMG_4069.png", "date": "2021-11-02"},
+        {"file": "drops/IMG_4070.png", "date": "2021-11-02"},
+        {"file": "drops/IMG_4162.png", "date": "2021-11-12"},
+        {"file": "drops/IMG_4166.png", "date": "2021-11-14"},
+        {"file": "drops/IMG_4221.png", "date": "2021-11-25"},
+        {"file": "drops/IMG_4516.jpg", "date": "2019-12-09"}
+    ],
+    "other": [
+        {"file": "other/2017-07-02_21.06.44.png", "date": "2017-07-02"},
+        {"file": "other/IMG_0585.jpg", "date": "2020-08-04"},
+        {"file": "other/IMG_1023.png", "date": "2020-10-18"},
+        {"file": "other/IMG_1382.jpg", "date": "2020-12-06"},
+        {"file": "other/IMG_1510.png", "date": "2020-12-22"},
+        {"file": "other/IMG_3031.jpg", "date": "2019-12-09"},
+        {"file": "other/IMG_4062.png", "date": "2021-11-01"},
+        {"file": "other/IMG_4063.png", "date": "2021-11-01"}
+    ],
+    "shop": [
+        {"file": "shop/IMG_4222.png", "date": "2021-11-25"},
+        {"file": "shop/IMG_5084.png", "date": "2020-02-26"},
+        {"file": "shop/img_5381.png", "date": "2020-04-16"}
+    ]
+}
