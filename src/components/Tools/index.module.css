@@ -1,0 +1,27 @@
+.outer-container {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.overview {
+    /* text-align: center; */
+    font-size: 1.6rem;
+}
+
+.suboverview {
+    /* text-align: center; */
+    font-size: 1.2rem;
+}
+
+.signature {
+    font-style: italic;
+    margin-bottom: 2.6rem;
+}
+
+.results {
+    font-size: 1.8rem;
+}
+
+.results .output {
+    font-size: 2rem;
+}
