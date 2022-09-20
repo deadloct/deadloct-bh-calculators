@@ -2,8 +2,6 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Container from "@mui/material/Container";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
-import DownloadIcon from "@mui/icons-material/Download";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
  
 import VideoJSWrapper from "../VideoJSWrapper";
 import { FormatVideoTime } from "../../utils";
@@ -31,10 +29,10 @@ export default function Video() {
             <header className={styles.header}>
                 <h1 className={styles["video-title"]}><LiveTvIcon /> {v.name}</h1>
                 <div className={styles["meta"]}>
-                    <div className={styles["meta-date"]}>{d} <CalendarMonthIcon /></div> 
-                    <div className={styles["meta-mp4"]}>
+                    <div className={styles["meta-date"]}>{d}</div> 
+                    {/* <div className={styles["meta-mp4"]}>
                         <a href={`video/${v.mp4}`} download={`video/${v.mp4}`}>Download Full Video <DownloadIcon /></a>
-                    </div> 
+                    </div>  */}
                 </div>
             </header>
             <VideoJSWrapper video={v} playerkey={`video-${v.slug}`} />

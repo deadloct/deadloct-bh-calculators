@@ -13,10 +13,12 @@ export default function Header() {
                 <h1>Bit Heroes Tools</h1>
                 <nav>
                     <ul>
-                        <li><Link to="/">Calculators</Link></li>
-                        <li>•</li>
-                        <li><Link to="/video">Videos</Link></li>
-                    </ul> 
+                        <li key="calculators"><Link to="/">Calculators</Link></li>
+                        <li key="bullet-1">•</li>
+                        <li key="pics"><Link to="/pics">Pics</Link></li>
+                        <li key="bullet-2">•</li>
+                        <li key="videos"><Link to="/video">Videos</Link></li>
+                    </ul>
                 </nav>
             </header>
         </>
