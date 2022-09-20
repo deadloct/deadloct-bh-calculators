@@ -81,8 +81,8 @@ export default function Pics() {
                         return (
                             <ImageListItem key={`imglistitem-${p.base}`}>
                                 <img
-                                    src={`${low}?w=248&fit=crop&auto=format`}
-                                    srcSet={`${low}?w=248&fit=crop&auto=format&dpr=2 1x, ${med}?w=248&fit=crop&auto=format&dpr=1.25 1.25x, ${lrg}?w=248&fit=crop&auto=format&dpr=1.6 1.6x`}
+                                    src={low}
+                                    srcSet={`${low} 1x, ${med} 1.25x, ${lrg} 1.6x`}
                                     alt={name + "," + image.date}
                                     loading="lazy"
                                     onClick={() => openModal(full, image.date)}
