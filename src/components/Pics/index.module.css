@@ -45,6 +45,7 @@
 }
 
 .modal .modal-desc {
+    max-width: 70%;
     padding: 0 15px 5px;
     background-color: white;
     border-bottom-left-radius: 5px;
