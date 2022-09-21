@@ -11,6 +11,14 @@
     cursor: pointer;
 }
 
+.overview {
+    font-size: 1.6rem;
+}
+
+.thumbdesc {
+    cursor: pointer;
+}
+
 .modal {
     position: fixed;
     top: 0;
@@ -19,9 +27,11 @@
     left: 0;
     
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     outline: none;
+    cursor: pointer;
 }
 
 .modal img {
@@ -29,4 +39,15 @@
     background-color: white;
     max-width: 80%;
     max-height: 80%;
+    border: 5px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal .modal-desc {
+    padding: 0 15px 5px;
+    background-color: white;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
 }

@@ -10,7 +10,7 @@ export default function Header() {
             </div>
 
             <header className={styles["site-header"]}>
-                <h1>Bit Heroes Tools</h1>
+                <h1>Deadloct / BH</h1>
                 <nav>
                     <ul>
                         <li key="calculators"><Link to="/">Calculators</Link></li>
