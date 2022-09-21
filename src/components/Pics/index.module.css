@@ -44,11 +44,17 @@
     cursor: pointer;
 }
 
-.modal .modal-desc {
+.modal-caption {
     max-width: 70%;
     padding: 0 15px 5px;
     background-color: white;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     cursor: pointer;
+}
+
+@media all and (max-width: 899px) {
+    .thumbdesc {
+        display: none !important;
+    }
 }

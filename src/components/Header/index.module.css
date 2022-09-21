@@ -7,6 +7,7 @@
     transition-duration: 1s;
 }
 
+.ghribbon:active,
 .ghribbon:hover {
     transition-property: opacity;
     transition-duration: 1s;
@@ -46,11 +47,23 @@
 }
 
 @media all and (max-width: 899px) {
+    .ghribbon {
+        display: none;
+    }
+
     .site-header h1 {
         font-size: 2rem;
     }
 
+    .site-header nav ul {
+        flex-direction: column;
+    }
+
     .site-header nav li {
         font-size: 1.2rem;
+    }
+
+    .site-header nav .lidivider {
+        display: none;
     }
 }

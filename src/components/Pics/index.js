@@ -139,7 +139,7 @@ export default function Pics() {
             <Modal open={showModal} onClose={closeModal} onClick={closeModal}>
                 <div className={styles.modal}>
                     <img src={modalImage} alt={modalImageDate} />
-                    <div className={styles["modal-desc"]}>
+                    <div className={styles["modal-caption"]}>
                         {modalImageDate}: {modalImageDesc}
                     </div>
                 </div>
