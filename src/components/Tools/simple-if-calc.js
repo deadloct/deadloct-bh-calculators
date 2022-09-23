@@ -46,7 +46,11 @@ export default function SimpleIFCalc() {
     useEffect(() => {
         const timeoutID = setTimeout(() => {
             const result = (cleanVal(infoIFRef.current) + 100) * encounterBonusRef.current;
-            setOutput(`${result}%`);
+            let r = `${result}%`;
+            if (result > 3500) {
+                r = `3500% (actual IF of ${result}% is above cap)`
+            }
+            setOutput(r);
         }, 100);
 
         return () => clearTimeout(timeoutID);

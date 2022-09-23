@@ -123,7 +123,7 @@ export default function Pics() {
     return (
         <Container key="pics" className={styles["outer-container"]} maxWidth="md">
             <p className={styles.overview}>
-                Sadly I pruned most of my old images, but I still found plenty of fun ones. Enjoy!
+                Some random pics from over the years.
             </p>
 
             <Divider />

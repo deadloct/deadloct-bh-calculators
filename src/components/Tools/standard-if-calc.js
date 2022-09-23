@@ -40,7 +40,12 @@ export default function StandardIFCalc() {
             cleanVal(consumable) + cleanVal(daily) + cleanVal(adgor);
         const result = total * cleanVal(encounter);
 
-        setOutput(`${result}%`);
+        let r = `${result}%`;
+        if (result > 3500) {
+            r = `3500% (actual IF of ${result}% is above cap)`
+        }
+
+        setOutput(r);
     }, [formValues]);
 
     return (

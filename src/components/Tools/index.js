@@ -14,18 +14,19 @@ export default function Tools() {
             <p className={styles.overview}>
                 Calculators ported from <a href="https://jsfiddle.net/dchzwg90/">Archangel's awesome jsfiddle</a>. 
             </p> 
-            <p className={styles.suboverview}>
-                Also credit to iWushock for sharing the jsfiddle, Uber-gecko for asking for it, skye666 for making an awesome spreadsheet calculator that I used for ages, and everybody in [DÀRK] for being super rad.
-            </p>
-            <p className={styles.signature}>
-                -- BillyIdol
-            </p>
             <Divider />
             <SimpleIFCalc />
             <Divider />
             <StandardIFCalc />
             <Divider />
             <CaptureRateCalc />
+            <Divider />
+            <p className={styles.suboverview}>
+                Also credit to iWushock for sharing the jsfiddle, Uber-gecko for asking for it, skye666 for making an awesome spreadsheet calculator that I used for ages, and everybody in [DÀRK] for being super rad.
+            </p>
+            <p className={styles.signature}>
+                --BillyIdol
+            </p>
         </Container>
     )
 }
