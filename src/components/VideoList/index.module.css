@@ -30,6 +30,12 @@
     font-size: 1.2rem;
 }
 
+.year-block .date {
+    font-size: 0.8rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+} 
+
 @media all and (max-width: 599px) {
     .year-block h2 {
         font-size: 1.2rem;

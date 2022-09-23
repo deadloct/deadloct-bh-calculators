@@ -15,9 +15,9 @@ export default function Header() {
                     <ul>
                         <li key="calculators"><Link to="/">Calculators</Link></li>
                         <li className={styles.lidivider} key="bullet-1">•</li>
-                        <li key="pics"><Link to="/pics">Pics</Link></li>
-                        <li className={styles.lidivider} key="bullet-2">•</li>
                         <li key="videos"><Link to="/video">Videos</Link></li>
+                        <li className={styles.lidivider} key="bullet-2">•</li>
+                        <li key="pics"><Link to="/pics">Pics</Link></li>
                     </ul>
                 </nav>
             </header>

@@ -6,11 +6,17 @@ import Container from "@mui/material/Container";
 import styles from "./index.module.css";
 import { DefaultYear, YearFromDate } from "../../utils";
 
-const nameCompare = (a, b) => a.name.localeCompare(b.name);
+// const nameCompare = (a, b) => a.name.localeCompare(b.name);
+const dateCompare = (a, b) => new Date(a.date) < new Date(b.date);
 
 function listItemForVideo(v, key) {
     const k = `${YearFromDate(v.date)}-${key}`;
-    return <li key={k}><Link to={`/video/${v.slug}`}>{v.name}</Link></li>;
+    return (
+        <li key={k}>
+            <div className={styles.title}><Link to={`/video/${v.slug}`}>{v.name}</Link></div>
+            <div className={styles.date}>{v.date}</div>
+        </li>
+    );
 }
 
 function listsForYear(year, items, first) {
@@ -43,9 +49,9 @@ function VideoList(props) {
                 const year = YearFromDate(item.date);
                 (dict[year] = dict[year] || []).push(item);
             });
-        
-        Object.keys(dict).forEach(function(y) {
-            dict[y].sort(nameCompare);
+
+        Object.keys(dict).forEach(function (y) {
+            dict[y].sort(dateCompare);
         });
         return dict;
     }, [showExcluded, videos]);
@@ -60,18 +66,10 @@ function VideoList(props) {
         );
     }
 
-    const items = years.map((y, i) => listsForYear(y, byYear[y], i === 0))
-    items.push((
-        <div className={styles["year-block"]} key="year-block-2017-2019">
-            <h2 key="h2-2017-2019">2017-2019</h2>
-            <p>Sadly I didn't record any videos during this time.</p>
-        </div>
-    ));
-
     return (
         <Container className={styles["outer-container"]} maxWidth="md">
             <div className={styles["year-blocks"]}>
-                {items}
+                {years.map((y, i) => listsForYear(y, byYear[y], i === 0))}
             </div>
         </Container>
     );

@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
+import { Lightbox } from "react-modal-image";
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -7,7 +8,6 @@ import Divider from "@mui/material/Divider";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
-import Modal from "@mui/material/Modal";
 
 import styles from './index.module.css';
 
@@ -128,22 +128,22 @@ export default function Pics() {
 
             <Divider />
 
-            {getPicBlock("shop", gallerySorted["shop"])}
+            {getPicBlock("Old Shop Offers", gallerySorted["shop"])}
             <Divider />
-            {getPicBlock("bugs", gallerySorted["bugs"])}
+            {getPicBlock("Fun Bugs From Over The Years", gallerySorted["bugs"])}
             <Divider />
-            {getPicBlock("drops", gallerySorted["drops"])}
+            {getPicBlock("Other Random Photos", gallerySorted["other"])}
             <Divider />
-            {getPicBlock("other", gallerySorted["other"])}
+            {getPicBlock("Drops On BillyIdol", gallerySorted["drops"])}
 
-            <Modal open={showModal} onClose={closeModal} onClick={closeModal}>
-                <div className={styles.modal}>
-                    <img src={modalImage} alt={modalImageDate} />
-                    <div className={styles["modal-caption"]}>
-                        {modalImageDate}: {modalImageDesc}
-                    </div>
-                </div>
-            </Modal>
+            {showModal && (
+                <Lightbox
+                    medium={modalImage}
+                    large={modalImage}
+                    alt={`${modalImageDate}: ${modalImageDesc}`}
+                    onClose={closeModal}
+                />
+            )}
         </Container>
     );
 }
