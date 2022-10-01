@@ -113,9 +113,9 @@
                 { "value": "3.5-tg", "text": "T/G 5 Tokens" }
             ],
             "World Boss": [
-                { "value": "1-tg", "text": "WB-Normal" },
-                { "value": "1.25-tg", "text": "WB-Hard" },
-                { "value": "1.5-tg", "text": "WB-Heroic" }
+                { "value": "1-wb", "text": "WB-Normal" },
+                { "value": "1.25-wb", "text": "WB-Hard" },
+                { "value": "1.5-wb", "text": "WB-Heroic" }
             ]
         }
     },

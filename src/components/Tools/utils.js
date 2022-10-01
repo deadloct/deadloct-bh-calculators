@@ -1,4 +1,3 @@
-
 export const VerticalSpacing = 3;
 
 export function calcIF(vals) {
@@ -11,6 +10,10 @@ export function calcIF(vals) {
         vals.adgor +
         daily;
     return total * vals.encounter;
+}
+
+export function getIFFormula(vals) {
+    return `(100 + ${vals.rune1} + ${vals.rune2} + ${vals.guild} + ${vals.consumable} + ${vals.adgor} + (${vals.daily} * ${vals.dailyMult})) * (1 + ${vals.encounter - 1})`;
 }
 
 export function cleanVal(val) {

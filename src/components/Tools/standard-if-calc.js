@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+
+import 'katex/dist/katex.min.css';
+import { InlineMath } from "react-katex";
+
 import FormControl from '@mui/material/FormControl';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -8,12 +12,13 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 
 import styles from "./index.module.css";
-import { calcIF, cleanVal, VerticalSpacing } from "./utils";
+import { calcIF, cleanVal, getIFFormula, VerticalSpacing } from "./utils";
 
 export default function StandardIFCalc() {
     const options = useSelector((state) => state.calc.options);
 
     const [output, setOutput] = useState("0%");
+    const [formula, setFormula] = useState("TBC");
     const [formValues, setFormValues] = useState({
         rune1: options.runes.default,
         rune2: options.runes.default,
@@ -35,7 +40,7 @@ export default function StandardIFCalc() {
     };
 
     useEffect(() => {
-        const result = calcIF({
+        const cleanedVals = {
             rune1: cleanVal(formValues.rune1),
             rune2: cleanVal(formValues.rune2),
             guild: cleanVal(formValues.guild),
@@ -44,7 +49,9 @@ export default function StandardIFCalc() {
             dailyMult: cleanVal(formValues.dailyMult),
             adgor: cleanVal(formValues.adgor),
             encounter: cleanVal(formValues.encounter),
-        });
+        };
+
+        const result = calcIF(cleanedVals);
 
         let r = `${result}%`;
         if (result > 3500) {
@@ -52,6 +59,7 @@ export default function StandardIFCalc() {
         }
 
         setOutput(r);
+        setFormula(getIFFormula(cleanedVals))
     }, [formValues]);
 
     return (
@@ -157,7 +165,7 @@ export default function StandardIFCalc() {
                     <FormControl fullWidth>
                         <InputLabel id="daily-mult-label">Daily Bonus Multiplier</InputLabel>
                         <Select
-                            labelID="daily-mult-label"
+                            labelId="daily-mult-label"
                             id="dailyMult"
                             name="dailyMult"
                             defaultValue={1}
@@ -217,10 +225,11 @@ export default function StandardIFCalc() {
                 </Box>
             </Box>
 
-            <p className={styles.results}>
-                Your item find is:<br />
-                <span className={styles.output}>{output}</span>
-            </p>
+            <div className={styles.results}>
+                <p>Your item find is:</p>
+                <p className={styles.output}>{output}</p>
+                <p>Formula: <InlineMath math={formula} /></p>
+            </div>
         </section>
     );
 }
