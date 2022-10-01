@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 
 import styles from "./index.module.css";
-import { cleanVal, VerticalSpacing } from "./utils";
+import { calcIF, cleanVal, VerticalSpacing } from "./utils";
 
 export default function StandardIFCalc() {
     const options = useSelector((state) => state.calc.options);
@@ -20,6 +20,7 @@ export default function StandardIFCalc() {
         guild: options.guild.default,
         consumable: options.consumables.default,
         daily: options.daily.default,
+        dailyMult: 1,
         adgor: options.adgor.default,
         encounter: options.encounter.default,
     });
@@ -34,15 +35,20 @@ export default function StandardIFCalc() {
     };
 
     useEffect(() => {
-        const { rune1, rune2, guild, consumable, daily, adgor, encounter } = formValues;
-
-        const total = 100 + cleanVal(rune1) + cleanVal(rune2) + cleanVal(guild) +
-            cleanVal(consumable) + cleanVal(daily) + cleanVal(adgor);
-        const result = total * cleanVal(encounter);
+        const result = calcIF({
+            rune1: cleanVal(formValues.rune1),
+            rune2: cleanVal(formValues.rune2),
+            guild: cleanVal(formValues.guild),
+            consumable: cleanVal(formValues.consumable),
+            daily: cleanVal(formValues.daily),
+            dailyMult: cleanVal(formValues.dailyMult),
+            adgor: cleanVal(formValues.adgor),
+            encounter: cleanVal(formValues.encounter),
+        });
 
         let r = `${result}%`;
         if (result > 3500) {
-            r = `3500% (actual IF of ${result}% is above cap)`
+            r += " (exceeds 3500% cap)"
         }
 
         setOutput(r);
@@ -144,6 +150,25 @@ export default function StandardIFCalc() {
                             {options.daily.options.map((v, i) => (
                                 <MenuItem key={i} value={v.value}>{v.text}</MenuItem>
                             ))}
+                        </Select>
+                    </FormControl>
+                </Box>
+                <Box mt={VerticalSpacing}>
+                    <FormControl fullWidth>
+                        <InputLabel id="daily-mult-label">Daily Bonus Multiplier</InputLabel>
+                        <Select
+                            labelID="daily-mult-label"
+                            id="dailyMult"
+                            name="dailyMult"
+                            defaultValue={1}
+                            label="Daily Bonus Multiplier"
+                            onChange={handleInputChange}
+                        >
+                            <MenuItem key="daily-mult-1x" value={1}>1x</MenuItem>
+                            <MenuItem key="daily-mult-2x" value={2}>2x</MenuItem>
+                            <MenuItem key="daily-mult-3x" value={3}>3x</MenuItem>
+                            <MenuItem key="daily-mult-4x" value={4}>4x</MenuItem>
+                            <MenuItem key="daily-mult-5x" value={5}>5x</MenuItem>
                         </Select>
                     </FormControl>
                 </Box>

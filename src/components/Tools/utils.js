@@ -1,6 +1,18 @@
 
 export const VerticalSpacing = 3;
 
+export function calcIF(vals) {
+    const daily = vals.daily * vals.dailyMult;
+    const total = 100 +
+        vals.rune1 +
+        vals.rune2 +
+        vals.guild +
+        vals.consumable +
+        vals.adgor +
+        daily;
+    return total * vals.encounter;
+}
+
 export function cleanVal(val) {
     if (typeof val === "number") {
         return val;

@@ -48,7 +48,7 @@ export default function SimpleIFCalc() {
             const result = (cleanVal(infoIFRef.current) + 100) * encounterBonusRef.current;
             let r = `${result}%`;
             if (result > 3500) {
-                r = `3500% (actual IF of ${result}% is above cap)`
+                r += " (exceeds 3500% cap)"
             }
             setOutput(r);
         }, 100);
