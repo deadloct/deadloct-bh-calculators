@@ -88,7 +88,7 @@ export default function Pics() {
         return (
             <Box mt={VerticalSpacing} key={`fragment-${name}`}>
                 <h2>{name}</h2>
-                <ImageList variant="masonry" cols={3} gap={8}>
+                <ImageList variant="standard" cols={3} gap={8}>
                     {images.map(image => {
                         const p = pathParse(`/screenshots/${image.file}`);
                         const common = `${process.env.PUBLIC_URL}/${p.dir}/${p.name}`;

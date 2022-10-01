@@ -197,6 +197,11 @@
     ],
     "shop": [
         {
+            "file": "shop/2022-09-29-lag-compensation.PNG",
+            "date": "2022-09-29",
+            "desc": "Compensation for regular lag and disconnects"
+        },
+        {
             "file": "shop/2022-09-25-myth-schem-120000-gems.PNG",
             "date": "2022-09-25",
             "desc": "What a steal 🙄"
