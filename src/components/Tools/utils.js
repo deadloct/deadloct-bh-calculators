@@ -2,7 +2,7 @@
 export const VerticalSpacing = 3;
 
 export function calcIF(vals) {
-    const daily = vals.daily * vals.dailyMult;
+    let daily = vals.daily * vals.dailyMult;
     const total = 100 +
         vals.rune1 +
         vals.rune2 +

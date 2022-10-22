@@ -30,7 +30,7 @@ export default function StandardIFCalc() {
 
         setFormValues({
             ...formValues,
-            [name]: cleanVal(value),
+            [name]: value,
         });
     };
 
@@ -40,10 +40,13 @@ export default function StandardIFCalc() {
             rune2: cleanVal(formValues.rune2),
             guild: cleanVal(formValues.guild),
             consumable: cleanVal(formValues.consumable),
-            daily: cleanVal(formValues.daily),
             dailyMult: cleanVal(formValues.dailyMult),
             adgor: cleanVal(formValues.adgor),
             encounter: cleanVal(formValues.encounter),
+            
+            // ternary is a hack for pvp if
+            daily: (formValues.daily === "0-r" && formValues.encounter === "1-tix") ?
+                100 : cleanVal(formValues.daily),
         });
 
         let r = `${result}%`;
@@ -157,7 +160,7 @@ export default function StandardIFCalc() {
                     <FormControl fullWidth>
                         <InputLabel id="daily-mult-label">Daily Bonus Multiplier</InputLabel>
                         <Select
-                            labelID="daily-mult-label"
+                            labelId="daily-mult-label"
                             id="dailyMult"
                             name="dailyMult"
                             defaultValue={1}
