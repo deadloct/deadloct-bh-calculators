@@ -13,6 +13,10 @@ export function calcIF(vals) {
     return total * vals.encounter;
 }
 
+export function getIFEquation(vals) {
+    return `(rune:${vals.rune1} + rune:${vals.rune2} + guild:${vals.guild} + consumable:${vals.consumable} + adgor:${vals.adgor} + daily*event-multiplier:(${vals.daily}*${vals.dailyMult})) * (1 + encounter:${vals.encounter-1})`;
+}
+
 export function cleanVal(val) {
     if (typeof val === "number") {
         return val;

@@ -110,7 +110,11 @@
                 { "value": "2-tg", "text": "T/G 2 Tokens" },
                 { "value": "2-tg-3tokens", "text": "T/G 3 Tokens" },
                 { "value": "3-tg", "text": "T/G 4 Tokens" },
-                { "value": "3.5-tg", "text": "T/G 5 Tokens" }
+                { "value": "3.5-tg", "text": "T/G 5 Tokens" },
+                { "value": "2.25-tg", "text": "T/G 2 Tokens (+25% Halloween)" },
+                { "value": "2.5-tg-3tokens", "text": "T/G 3 Tokens (+50% Halloween)" },
+                { "value": "3.75-tg", "text": "T/G 4 Tokens (+75% Halloween)" },
+                { "value": "4.5-tg", "text": "T/G 5 Tokens (+100% Halloween)" }
             ],
             "World Boss": [
                 { "value": "1-tg", "text": "WB-Normal" },

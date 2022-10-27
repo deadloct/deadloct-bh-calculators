@@ -8,12 +8,13 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 
 import styles from "./index.module.css";
-import { calcIF, cleanVal, VerticalSpacing } from "./utils";
+import { calcIF, cleanVal, getIFEquation, VerticalSpacing } from "./utils";
 
 export default function StandardIFCalc() {
     const options = useSelector((state) => state.calc.options);
 
     const [output, setOutput] = useState("0%");
+    const [equation, setEquation] = useState("");
     const [formValues, setFormValues] = useState({
         rune1: options.runes.default,
         rune2: options.runes.default,
@@ -35,7 +36,7 @@ export default function StandardIFCalc() {
     };
 
     useEffect(() => {
-        const result = calcIF({
+        const params = {
             rune1: cleanVal(formValues.rune1),
             rune2: cleanVal(formValues.rune2),
             guild: cleanVal(formValues.guild),
@@ -47,7 +48,8 @@ export default function StandardIFCalc() {
             // ternary is a hack for pvp if
             daily: (formValues.daily === "0-r" && formValues.encounter === "1-tix") ?
                 100 : cleanVal(formValues.daily),
-        });
+        };
+        const result = calcIF(params);
 
         let r = `${result}%`;
         if (result > 3500) {
@@ -55,6 +57,7 @@ export default function StandardIFCalc() {
         }
 
         setOutput(r);
+        setEquation(getIFEquation(params));
     }, [formValues]);
 
     return (
@@ -224,6 +227,8 @@ export default function StandardIFCalc() {
                 Your item find is:<br />
                 <span className={styles.output}>{output}</span>
             </p>
+
+            <p className={styles.equation}><strong>Equation:</strong> {equation}</p>
         </section>
     );
 }
