@@ -197,6 +197,11 @@
     ],
     "shop": [
         {
+            "file": "shop/2022-11-25-urgoff-deal.png",
+            "date": "2022-11-25",
+            "desc": "20 USD Urgoff deal for Black Friday 2022"
+        },
+        {
             "file": "shop/2022-09-29-lag-compensation.PNG",
             "date": "2022-09-29",
             "desc": "Compensation for regular lag and disconnects"
