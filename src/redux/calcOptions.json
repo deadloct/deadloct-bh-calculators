@@ -124,18 +124,18 @@
         }
     },
     "encounterCapRate": {
-        "default": "5-raid",
+        "default": "2-raid",
         "groups": {
             "Dungeons": [
-                { "value": "1.5-dun", "text": "Dungeon-Normal" },
-                { "value": "3-dun", "text": "Dungeon-Hard" },
-                { "value": "4.5-dun", "text": "Dungeon-Heroic" },
-                { "value": "3-dun-d4", "text": "Dungeon-D4" }
+                { "value": "1-dun", "text": "Dungeon-Normal" },
+                { "value": "2-dun", "text": "Dungeon-Hard" },
+                { "value": "3-dun", "text": "Dungeon-Heroic" },
+                { "value": "1.5-dun-d4", "text": "Dungeon-D4" }
             ],
             "Raids": [
                 { "value": "1-raid", "text": "Raid-Normal" },
-                { "value": "3-raid", "text": "Raid-Hard" },
-                { "value": "5-raid", "text": "Raid-Heroic" }
+                { "value": "1.5-raid", "text": "Raid-Hard" },
+                { "value": "2-raid", "text": "Raid-Heroic" }
             ]
         }
     } 
