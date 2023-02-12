@@ -7,19 +7,19 @@
     padding: 2rem 1rem;
     text-align: center;
     width: 100%;
-    background-color: var(--main-text-color);
-    color: white !important;
+    background-color: var(--footer-background-color);
+    color: var(--footer-text-color) !important;
 }
 
 .site-footer * {
-    color: white !important;
+    color: var(--footer-text-color) !important;
 }
 
 .site-footer a,
 .site-footer a:active,
 .site-footer a:hover,
 .site-footer a:visited {
-    color: white;
+    color: var(--footer-link-color);
     text-decoration: underline;
 }
 

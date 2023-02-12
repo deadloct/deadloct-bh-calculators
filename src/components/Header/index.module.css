@@ -20,12 +20,12 @@
     padding: 2rem 1rem;
     text-align: center;
     width: 100%;
-    background-color: var(--main-text-color);
-    color: white !important;
+    background-color: var(--header-background-color);
+    color: var(--header-text-color) !important;
 }
 
 .site-header * {
-    color: white !important;
+    color: var(--header-text-color) !important;
 }
 
 .site-header p {

@@ -1,12 +1,39 @@
 :root {
+  --main-background-color: white;
   --main-text-color: rgb(30, 30, 30);
-  --main-border-color: rgb(240, 240, 240);
-  --focused-border-color: rgb(120, 120, 120);
+  --main-link-color: rgb(44, 44, 255);
+  --hover-link-color: rgb(44, 44, 255);
+  --app-link-color: #61dafb;
+
+  --header-background-color: #282c34;
+  --header-text-color: white;
+
+  --footer-background-color: #282c34;
+  --footer-text-color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-background-color: #282c34;
+    --main-text-color: white;
+    --main-link-color: rgb(168, 168, 255);
+    --hover-link-color: rgb(104, 101, 254);
+
+    --header-background-color: rgb(30, 30, 30);
+    --header-text-color: white;
+
+    --footer-background-color: rgb(30, 30, 30);
+    --footer-text-color: white;
+
+    --app-link-color: #61dafb;
+  }
 }
 
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--main-background-color) !important;
+  color: var(--main-text-color) !important;
 }
 
 body * {
@@ -33,15 +60,15 @@ h2 {
 }
 
 a,
-a:hover,
-a:active,
 a:visited {
   text-decoration: none;
-  color: blue;
+  color: var(--main-link-color);
 }
 
+a:active,
 a:hover {
   text-decoration: underline;
+  color: var(--hover-link-color);
 }
 
 code {

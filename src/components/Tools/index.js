@@ -22,7 +22,7 @@ export default function Tools() {
             <CaptureRateCalc />
             <Divider />
             <p className={styles.suboverview}>
-                Also credit to iWushock for sharing the jsfiddle, Uber-gecko for asking for it, skye666 for making an awesome spreadsheet calculator that I used for ages, and everybody in [DÀRK] for being super rad.
+                Credits to pixelbxss for finding some critical issues with the site and for making suggestions, iWushock for sharing the jsfiddle, Uber-gecko for asking for it, skye666 for making an awesome spreadsheet calculator that I used for ages, and everybody in [DÀRK] for being super rad.
             </p>
             <p className={styles.signature}>
                 --BillyIdol
