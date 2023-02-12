@@ -12,37 +12,12 @@ import TextField from "@mui/material/TextField";
 import styles from './index.module.css';
 import { cleanVal, VerticalSpacing } from "./utils";
 
-const RaidFamPct = .1;
-const Common = 4;
-const Rare = 2.5;
-const Epic = 1.5
-const Leg = 1;
-const CapturePercentCommon = 0.4;
-const CapturePercentRare = 0.2;
-const CapturePrecentEpic = 0.15;
-const CapturePrecentLeg = 0.1;
-const Percentage = .01;
-
-const toFixedPctStr = v => `${v.toFixed(2)}%`;
-
 export default function CaptureRateCalc() {
     const encounterOptions = useSelector((state) => state.calc.options.encounterCapRate);
 
     const [output, setOutput] = useState("0%");
     const [infoCapRate, setInfoCapRate] = useState(0);
     const [encounterBonus, setEncounterBonus] = useState(cleanVal(encounterOptions.default));
-    const [baseChances, setBaseChances] = useState({
-        offerCommonDungeon: "0%",
-        offerRareDungeon: "0%",
-        offerEpicDungeon: "0%",
-        offerEpicRaid: "0%",
-        offerLegRaid: "0%",
-        capCommonDungeon: "0%",
-        capRareDungeon: "0%",
-        capEpicDungeon: "0%",
-        capEpicRaid: "0%",
-        capLegRaid: "0%",
-    });
 
     const infoCapRateRef = useRef(infoCapRate);
     const encounterBonusRef = useRef(encounterBonus);
@@ -69,25 +44,9 @@ export default function CaptureRateCalc() {
         encounterBonusRef.current = val;
     };
 
-
     useEffect(() => {
         const timeoutID = setTimeout(() => {
             const output = (cleanVal(infoCapRateRef.current) + 100) * (cleanVal(encounterBonusRef.current));
-            
-            setBaseChances({
-                offerCommonDungeon: toFixedPctStr(output * Common * Percentage),
-                offerRareDungeon: toFixedPctStr(output * Rare * Percentage),
-                offerEpicDungeon: toFixedPctStr(output * Epic * Percentage),
-                offerEpicRaid: toFixedPctStr(output * Epic * RaidFamPct * Percentage),
-                offerLegRaid: toFixedPctStr(output * Leg * RaidFamPct * Percentage),
-    
-                capCommonDungeon: toFixedPctStr(output * Common * Percentage * CapturePercentCommon),
-                capRareDungeon: toFixedPctStr(output * Rare * Percentage * CapturePercentRare),
-                capEpicDungeon: toFixedPctStr(output * Epic * Percentage * CapturePrecentEpic),
-                capEpicRaid: toFixedPctStr(output * Epic * RaidFamPct * Percentage * CapturePrecentEpic),
-                capLegRaid: toFixedPctStr(output * Leg * RaidFamPct * Percentage * CapturePrecentLeg),
-            });
-    
             setOutput(`${output}%`);
         }, 100);
 
@@ -95,7 +54,6 @@ export default function CaptureRateCalc() {
     });
 
     return (
-
         <section id="capture-rate-calc">
             <h2>Capture Rate Calculator</h2>
 
@@ -142,37 +100,6 @@ export default function CaptureRateCalc() {
                 Your capture rate is:<br />
                 <span id="caprate-output" className={styles.output}>{output}</span>
             </p>
-
-            <div className={styles["extra-results"]}>
-                <h3>Offer Chance for One Run</h3>
-
-                <h4>Dungeons</h4>
-                <p>
-                    Common Dungeon Fam:&nbsp;<span className={styles["extra-val"]}>{baseChances.offerCommonDungeon}</span><br />
-                    Rare Dungeon Fam:&nbsp;<span className={styles["extra-val"]}>{baseChances.offerRareDungeon}</span><br />
-                    Epic Dungeon Fam:&nbsp;<span className={styles["extra-val"]}>{baseChances.offerEpicDungeon}</span>
-                </p>
-
-                <h4>Raids</h4>
-                <p>
-                    Epic Raid Fam:&nbsp;<span className={styles["extra-val"]}>{baseChances.offerEpicRaid}</span><br />
-                    Legendary Raid Fam:&nbsp;<span className={styles["extra-val"]}>{baseChances.offerLegRaid}</span>
-                </p>
-
-                <h3>Capture Chance for One Run</h3>
-                <h4>Dungeons</h4>
-                <p>
-                    Common Dungeon Fam:&nbsp;<span className={styles["extra-val"]}>{baseChances.capCommonDungeon}</span><br />
-                    Rare Dungeon Fam:&nbsp;<span className={styles["extra-val"]}>{baseChances.capRareDungeon}</span><br />
-                    Epic Dungeon Fam:&nbsp;<span className={styles["extra-val"]}>{baseChances.capEpicDungeon}</span>
-                </p>
-
-                <h4>Raids</h4>
-                <p>
-                    Epic Raid Fam:&nbsp;<span className={styles["extra-val"]}>{baseChances.capEpicRaid}</span><br />
-                    Legendary Raid Fam:&nbsp;<span className={styles["extra-val"]}>{baseChances.capLegRaid}</span>
-                </p>
-            </div>
         </section>
     );
 }
