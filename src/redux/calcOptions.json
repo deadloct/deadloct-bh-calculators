@@ -94,6 +94,13 @@
                 { "value": "4.5-dun", "text": "Dungeon-Heroic" },
                 { "value": "3-dun-d4", "text": "Dungeon-D4" }
             ],
+            "Expedition": [
+                { "value": "1-exp", "text": "Expedition 1 Badge" },
+                { "value": "2-exp", "text": "Expedition 2 Badges" },
+                { "value": "2-exp-3tokens", "text": "Expedition 3 Badges" },
+                { "value": "3-exp", "text": "Expedition 4 Badges" },
+                { "value": "3.5-exp", "text": "Expedition 5 Badges" }
+            ],
             "Invasion": [
                 { "value": "1-inv", "text": "Invasion - Any Amount" }
             ],
