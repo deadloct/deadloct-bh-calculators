@@ -12,6 +12,7 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 import styles from './index.module.css';
 
 const Suffix = {
+    Thumb: "-240",
     Low: "-640",
     Medium: "-800",
     Large: "-1024",
@@ -92,16 +93,16 @@ export default function Pics() {
                     {images.map(image => {
                         const p = pathParse(`/screenshots/${image.file}`);
                         const common = `${process.env.PUBLIC_URL}/${p.dir}/${p.name}`;
-                        const low = common + Suffix.Low + p.ext;
-                        const med = common + Suffix.Medium + p.ext;
-                        const lrg = common + Suffix.Large + p.ext;
+                        const thumb = common + Suffix.Thumb + p.ext;
+                        // const low = common + Suffix.Low + p.ext;
+                        // const med = common + Suffix.Medium + p.ext;
+                        // const lrg = common + Suffix.Large + p.ext;
                         const full = common + p.ext;
 
                         return (
                             <ImageListItem key={`imglistitem-${p.base}`}>
                                 <img
-                                    src={low}
-                                    srcSet={`${low} 1x, ${med} 1.25x, ${lrg} 1.6x`}
+                                    src={thumb}
                                     alt={name + "," + image.date}
                                     loading="lazy"
                                     onClick={() => openModal(full, image.date, image.desc)}
