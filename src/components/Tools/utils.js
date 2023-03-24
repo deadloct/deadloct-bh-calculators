@@ -34,3 +34,6 @@ export function cleanVal(val) {
     return Number.parseFloat(actual);
 }
 
+export function getEncounterIFForDisplay(val) {
+    return (cleanVal(val)-1)*100;
+}

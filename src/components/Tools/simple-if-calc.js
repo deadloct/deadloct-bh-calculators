@@ -10,7 +10,7 @@ import Select from '@mui/material/Select';
 import TextField from "@mui/material/TextField";
 
 import styles from "./index.module.css";
-import { cleanVal, VerticalSpacing } from "./utils";
+import { cleanVal, getEncounterIFForDisplay, VerticalSpacing } from "./utils";
 
 export default function SimpleIFCalc() {
     const options = useSelector((state) => state.calc.options);
@@ -85,7 +85,7 @@ export default function SimpleIFCalc() {
                     >
                         {Object.keys(options.encounter.groups).map((k, i) => {
                             const items = options.encounter.groups[k].map((item, j) => (
-                                <MenuItem key={j} value={item.value}>{item.text}</MenuItem>
+                                <MenuItem key={j} value={item.value}>{`${item.text} (IF: ${getEncounterIFForDisplay(item.value)}%)`}</MenuItem>
                             ));
 
                             return [

@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 
 import styles from "./index.module.css";
-import { calcIF, cleanVal, getIFEquation, VerticalSpacing } from "./utils";
+import { calcIF, cleanVal, getEncounterIFForDisplay, getIFEquation, VerticalSpacing } from "./utils";
 
 export default function StandardIFCalc() {
     const options = useSelector((state) => state.calc.options);
@@ -210,7 +210,7 @@ export default function StandardIFCalc() {
                         >
                             {Object.keys(options.encounter.groups).map((k, i) => {
                                 const items = options.encounter.groups[k].map((item, j) => (
-                                    <MenuItem key={j} value={item.value}>{item.text}</MenuItem>
+                                    <MenuItem key={j} value={item.value}>{`${item.text} (IF: ${getEncounterIFForDisplay(item.value)}%)`}</MenuItem>
                                 ));
 
                                 return [
