@@ -25,6 +25,10 @@
     content: '→ ';
 }
 
+.calculator-wrapper {
+    margin: 0 20px;
+}
+
 .results {
     margin: 2rem 0 0;
     font-size: 1.8rem;
@@ -32,4 +36,8 @@
 
 .results .output {
     font-size: 2rem;
+}
+
+.input-num {
+    width: 100%;
 }

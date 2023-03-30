@@ -21,18 +21,19 @@ const limits = {
 };
 
 export default function TurnRateCalc() {
-    const [formValues, setFormValues] = useState(defaultValues);
+    const [sliderValues, setSliderValues] = useState(defaultValues);
+    const [inputDisplayValues, setInputDisplayValues] = useState(defaultValues);
     const [turnRate, setTurnRate] = useState(0);
 
     useEffect(() => {
-        let p = formValues.power;
-        let a = formValues.agility;
-        let s = formValues.speed;
+        let p = sliderValues.power;
+        let a = sliderValues.agility;
+        let s = sliderValues.speed;
         let multiplier = 1 + (s / 100);
         let numerator = multiplier * (((a + p) / 2) ** 2);
         let rate = Math.floor(numerator / p);
         setTurnRate(isNaN(rate) ? 0 : rate);
-    }, [formValues]);
+    }, [sliderValues]);
 
     function limit(val, name) {
         if (val < limits[name].min) {
@@ -48,8 +49,13 @@ export default function TurnRateCalc() {
 
     function getSliderHandler(name) {
         return (e, value) => {
-            setFormValues({
-                ...formValues,
+            setSliderValues({
+                ...sliderValues,
+                [name]: value,
+            });
+
+            setInputDisplayValues({
+                ...inputDisplayValues,
                 [name]: value,
             });
         };
@@ -58,19 +64,29 @@ export default function TurnRateCalc() {
     function getInputHandler(name) {
         return e => {
             let v = e.target.value === "" ? limits[name].min : limit(parseInt(e.target.value), name);
-            setFormValues({
-                ...formValues,
+            setSliderValues({
+                ...sliderValues,
                 [name]: v,
+            });
+
+            setInputDisplayValues({
+                ...inputDisplayValues,
+                [name]: e.target.value, // must be same text as came in
             });
         };
     }
 
     function getBlurHandler(name) {
         return () => {
-            setFormValues({
-                ...formValues,
-                [name]: limit(formValues[name], name),
-            }); 
+            setSliderValues({
+                ...sliderValues,
+                [name]: limit(sliderValues[name], name),
+            });
+
+            setInputDisplayValues({
+                ...inputDisplayValues,
+                [name]: limit(sliderValues[name], name), // Set to slider val
+            });
         };
     };
 
@@ -78,59 +94,57 @@ export default function TurnRateCalc() {
         <Container key="turnratecalc" className={styles["outer-container"]} maxWidth="md">
             <h2>Turn Rate Calculator</h2>
 
-            <Grid container justify="center" direction="column">
-                <Grid item>
-                    <Grid container justifyContent="space-between" direction="row">
-                        <Grid item><label>Power</label></Grid>
-                        <Grid item>
-                            <Input
-                                value={formValues.power}
-                                size="small"
-                                onChange={getInputHandler("power")}
-                                onBlur={getBlurHandler("power")}
-                                inputProps={{ step: 100, min: limits.power.min, max: limits.power.max, type: 'number' }}
-                            />
+            <div className={styles["calculator-wrapper"]}>
+                <Grid container justify="center" direction="column">
+                    <Grid item>
+                        <Grid container item justifyContent="space-between" direction="row">
+                            <Grid item><label>Power</label></Grid>
+                            <Grid item>
+                                <Input
+                                    value={inputDisplayValues.power}
+                                    onChange={getInputHandler("power")}
+                                    onBlur={getBlurHandler("power")}
+                                    inputProps={{ step: 100, min: limits.power.min, max: limits.power.max, type: 'number' }}
+                                />
+                            </Grid>
                         </Grid>
+                        <Slider value={sliderValues.power} min={0} max={120000} valueLabelDisplay="auto" onChange={getSliderHandler("power")} />
                     </Grid>
-                    <Slider value={formValues.power} min={0} max={120000} valueLabelDisplay="auto" onChange={getSliderHandler("power")} />
-                </Grid>
-                <Grid item>
-                    <Grid container justifyContent="space-between" direction="row">
-                        <Grid item><label>Agility</label></Grid>
-                        <Grid item>
-                            <Input
-                                value={formValues.agility}
-                                size="small"
-                                onChange={getInputHandler("agility")}
-                                onBlur={getBlurHandler("agility")}
-                                inputProps={{ step: 100, min: limits.agility.min, max: limits.agility.max, type: 'number' }}
-                            /> 
+                    <Grid item>
+                        <Grid container item justifyContent="space-between" direction="row">
+                            <Grid item><label>Agility</label></Grid>
+                            <Grid item>
+                                <Input
+                                    value={inputDisplayValues.agility}
+                                    onChange={getInputHandler("agility")}
+                                    onBlur={getBlurHandler("agility")}
+                                    inputProps={{ step: 100, min: limits.agility.min, max: limits.agility.max, type: 'number' }}
+                                />
+                            </Grid>
                         </Grid>
+                        <Slider value={sliderValues.agility} min={0} max={120000} valueLabelDisplay="auto" onChange={getSliderHandler("agility")} />
                     </Grid>
-                    <Slider value={formValues.agility} min={0} max={120000} valueLabelDisplay="auto" onChange={getSliderHandler("agility")} />
-                </Grid>
-                <Grid item>
-                    <Grid container justifyContent="space-between" direction="row">
-                        <Grid item><label>Speed</label></Grid>
-                        <Grid item>
-                            <Input
-                                value={formValues.speed}
-                                size="small"
-                                onChange={getInputHandler("speed")}
-                                onBlur={getBlurHandler("speed")}
-                                inputProps={{ step: 100, min: limits.speed.min, max: limits.speed.max, type: 'number' }}
-                            /> 
+                    <Grid item>
+                        <Grid container item justifyContent="space-between" direction="row">
+                            <Grid item><label>Speed</label></Grid>
+                            <Grid item>
+                                <Input
+                                    value={inputDisplayValues.speed}
+                                    onChange={getInputHandler("speed")}
+                                    onBlur={getBlurHandler("speed")}
+                                    inputProps={{ step: 100, min: limits.speed.min, max: limits.speed.max, type: 'number' }}
+                                />
+                            </Grid>
                         </Grid>
+                        <Slider value={sliderValues.speed} min={0} max={300} valueLabelDisplay="auto" onChange={getSliderHandler("speed")} />
                     </Grid>
-                    <Slider value={formValues.speed} min={0} max={300} valueLabelDisplay="auto" onChange={getSliderHandler("speed")} />
                 </Grid>
-                <Grid item>
-                    <p className={styles.results}>
-                        Your turn rate is:<br />
-                        <span className={styles.output}>{turnRate}</span>
-                    </p>
-                </Grid>
-            </Grid>
+            </div>
+
+            <p className={styles.results}>
+                Your turn rate is:<br />
+                <span className={styles.output}>{turnRate}</span>
+            </p>
 
             <h3>General Information</h3>
             <p>Contrary to popular belief, your turn rate isn't just agility!</p>
@@ -144,11 +158,11 @@ export default function TurnRateCalc() {
             <TurnRateEqnSVG />
             <dl>
                 <dt>P</dt>
-                <dd>Power of your Character</dd>
+                <dd>Power</dd>
                 <dt>A</dt>
-                <dd>Agility of your Character</dd>
+                <dd>Agility</dd>
                 <dt>SpeedBonus</dt>
-                <dd>Your bonus speed (enchants, runes, etc.)</dd>
+                <dd>Speed Percentage</dd>
             </dl>
 
             <h3>What do I need to know?</h3>
