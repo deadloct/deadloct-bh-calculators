@@ -27,3 +27,10 @@
 .equation {
     margin-bottom: 2.4rem;
 }
+
+.alert {
+    padding: 1rem;
+    font-size: 1.6rem;
+    background-color: var(--alert-bg);
+    color: var(--alert-text);
+}
