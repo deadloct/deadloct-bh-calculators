@@ -17,7 +17,7 @@ const defaultValues = {
 const limits = {
     power: { min: 0, max: 120000 },
     agility: { min: 0, max: 120000 },
-    speed: { min: 0, max: 300 },
+    speed: { min: 0, max: 150 },
 };
 
 export default function TurnRateCalc() {

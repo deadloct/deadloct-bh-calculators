@@ -63,10 +63,6 @@ export default function StandardIFCalc() {
     return (
         
         <section id="standard-if-calc">
-            <div className={styles.alert}>
-                Please note that these calculators do not currently work for Thursday's PVP bonus. I'll fix this asap.
-            </div>
-
             <h2>Standard Item Find Calculator</h2>
             <Box flexDirection="column">
                 <Box mt={VerticalSpacing}>
