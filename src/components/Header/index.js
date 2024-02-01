@@ -17,8 +17,10 @@ export default function Header() {
                         <li className={styles.lidivider} key="bullet-1">•</li>
                         <li key="calculator-turnrate"><Link to="/turn-rate">Turn Rate Calculator</Link></li>
                         <li className={styles.lidivider} key="bullet-2">•</li>
-                        <li key="videos"><Link to="/video">Videos</Link></li>
+                        <li key="calculators-rngme"><Link to="/rng-me">RNG ME</Link></li>
                         <li className={styles.lidivider} key="bullet-3">•</li>
+                        <li key="videos"><Link to="/video">Videos</Link></li>
+                        <li className={styles.lidivider} key="bullet-4">•</li>
                         <li key="pics"><Link to="/pics">Pics</Link></li>
                     </ul>
                 </nav>
