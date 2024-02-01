@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useDebounce } from "use-debounce";
+
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -19,9 +21,13 @@ import styles from "./index.module.css";
 import { VerticalSpacing } from "../Tools/utils";
 
 export default function RNGME() {
-    const [winChance, setWinChance] = useState(20);
-    const [gameCount, setGameCount] = useState(10000);
-    const [results, setResults] = useState(calculate());
+    const [rawWinChance, setRawWinChance] = useState(20);
+    const [winChance] = useDebounce(rawWinChance, 500);
+
+    const [rawGameCount, setRawGameCount] = useState(10000);
+    const [gameCount] = useDebounce(rawGameCount, 500);
+
+    const [results, setResults] = useState(null);
 
     function getRandomInt(min, max) {
         min = Math.ceil(min);
@@ -106,9 +112,28 @@ export default function RNGME() {
         setResults(calculate());
     }
 
+    function handleWinChanceChange(e) {
+        let v = e.target.value;
+        if (isNaN(v)) return;
+        if (v < 0 || v > 100) return;
+        setRawWinChance(v);
+    }
+
+    function handleGameCountChange(e) {
+        let v = e.target.value;
+        if (isNaN(v)) return;
+        if (v < 0) return;
+        setRawGameCount(v);
+    }
+
     function displayResults() {
         if (results === null) {
-            return <React.Fragment />
+            return (
+                <div>
+                    <h2>Results</h2>
+                    <p>Roll the dice and try your luck!</p>
+                </div>
+            )
         }
 
         return (
@@ -188,7 +213,7 @@ export default function RNGME() {
                             placeholder="i.e. 20"
                             min="0"
                             max="100"
-                            onChange={e => setWinChance(e.target.value)}
+                            onChange={handleWinChanceChange}
                             defaultValue={winChance}
                         />
                     </FormControl>
@@ -202,7 +227,7 @@ export default function RNGME() {
                             type="number"
                             placeholder="i.e. 1000"
                             min="0"
-                            onChange={e => setGameCount(e.target.value)}
+                            onChange={handleGameCountChange}
                             defaultValue={gameCount}
                             helperText="Large numbers on slow computers can crash your browser. YMMV but I start seeing performance degredation at around 1 million."
                         />
