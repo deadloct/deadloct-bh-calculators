@@ -10,7 +10,6 @@ As a very standard [create-react-app](https://create-react-app.dev/) app, this r
 
 ```bash
 npm start
-npm run
 ```
 
 To run the very few unit tests:
