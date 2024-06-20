@@ -3,7 +3,9 @@
     margin-bottom: 3rem;
 }
 
-.outer-container h2 {
+.outer-container h3 {
+    margin: 3rem 0 2rem;
+    text-align: center;
     text-transform: uppercase;
 }
 

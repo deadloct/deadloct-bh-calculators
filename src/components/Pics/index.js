@@ -4,7 +4,6 @@ import { Lightbox } from "react-modal-image";
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
-import Divider from "@mui/material/Divider";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
@@ -88,7 +87,7 @@ export default function Pics() {
     const getPicBlock = (name, images) => {
         return (
             <Box mt={VerticalSpacing} key={`fragment-${name}`}>
-                <h2>{name}</h2>
+                <h3>{name}</h3>
                 <ImageList variant="standard" cols={3} gap={8}>
                     {images.map(image => {
                         const p = pathParse(`/screenshots/${image.file}`);
@@ -123,18 +122,9 @@ export default function Pics() {
 
     return (
         <Container key="pics" className={styles["outer-container"]} maxWidth="md">
-            <p className={styles.overview}>
-                Some random pics from over the years.
-            </p>
-
-            <Divider />
-
             {getPicBlock("Old Shop Offers", gallerySorted["shop"])}
-            <Divider />
             {getPicBlock("Fun Bugs From Over The Years", gallerySorted["bugs"])}
-            <Divider />
             {getPicBlock("Other Random Photos", gallerySorted["other"])}
-            <Divider />
             {getPicBlock("Drops On BillyIdol", gallerySorted["drops"])}
 
             {showModal && (

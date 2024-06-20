@@ -204,6 +204,7 @@ export default function RNGME() {
         <Container className={styles["outer-container"]} maxWidth="md">
             <section id="rng-me">
                 <h2>RNG ME!</h2>
+                <p>See how bad Shrampz persuades can really get!</p>
                 <Box mt={VerticalSpacing} flexDirection="column">
                     <FormControl fullWidth>
                         <TextField id="win-chance"
@@ -235,7 +236,11 @@ export default function RNGME() {
                 </Box>
 
                 <Box mt={VerticalSpacing} flexDirection="column">
-                    <Button variant="contained" onClick={() => handleCalculateClick()}><DieIcon />&nbsp;&nbsp;&nbsp;Roll the Dice&nbsp;&nbsp;&nbsp;<DieIcon /></Button>
+                    <Button className={styles["roll-button"]} variant="contained" onClick={() => handleCalculateClick()}>
+                        <DieIcon fontSize={"medium"} />
+                        <div>Roll the Dice</div>
+                        <DieIcon fontSize={"medium"} />
+                    </Button>
                 </Box>
 
                 <Box mt={VerticalSpacing} flexDirection="column">

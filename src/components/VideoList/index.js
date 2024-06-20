@@ -29,7 +29,7 @@ function listsForYear(year, items, first) {
 
     return (
         <div className={classes.join(" ")} key={`year-block-${year}`}>
-            <h2 key={`h2-${year}`}>{y}</h2>
+            <h3 key={`h3-${year}`}>{y}</h3>
             <ul key={`ul-${year}`}>
                 {items.map((v, i) => listItemForVideo(v, i))}
             </ul>

@@ -1,6 +1,6 @@
-# deadloct.com/bitheroes
+# bhguides.com
 
-This repository holds the code behind [deadloct.com/bitheroes](https://deadloct.com/bitheroes). Feel free to open PRs or clone it and reuse it.
+This repository holds the code behind [bhguides.com](https://bhguides.com). Feel free to open PRs or clone it and reuse it.
 
 As mentioned on the website, the calculators are based on [a JSFiddle provided by the in-game user Archangel*](https://jsfiddle.net/dchzwg90/), so props to him, his code, and his design work.
 

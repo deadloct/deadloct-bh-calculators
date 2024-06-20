@@ -177,8 +177,8 @@ export default function TurnRateCalc() {
 
             <h3>Credits</h3>
             <p>
-                Thanks to Chocomint for providing the original source of this calculator. Also thanks to ChubbyDaemon and
-                the wiki crew for providing the information and equation that we based it on, along with the turn rate svg.
+                Thanks to Chocomint for helping with the text below this calculator. Also thanks to ChubbyDaemon and
+                the wiki crew for providing the information and equation that it was based on, along with the turn rate svg.
             </p>
         </Container>
     );

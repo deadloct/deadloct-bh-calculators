@@ -2,3 +2,15 @@
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
+
+.roll-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.roll-button div {
+    font-size: 1.2rem;
+    margin: 0 1rem;
+}
